@@ -10,12 +10,14 @@ let salon_name = document.getElementById('salon_name');
 let salon_address = document.getElementById('salon_address');
 let salon_number = document.getElementById('salon_number');
 let salon_services = document.getElementById('salon_services');
+let salon_title = document.getElementById('salon_title');
 
 let firestore = firebase.firestore();
 
 let salonRef = firestore.collection("salons").doc(salon_id);
 salonRef.get().then(function(salon){
     salon_name.innerHTML = salon.data().name;
+    salon_title.innerHTML = salon.data().name;
     salon_address.innerHTML = salon.data().address;
     salon_number.innerHTML = "Mobile: " + salon.data().number;
 });
@@ -95,7 +97,7 @@ let order = document.getElementById("order");
                     });
                         let printDiv = document.createElement("div");
                         console.log(order_no,all_services.innerHTML,all_cost.innerHTML)
-                        printDiv.innerHTML = `<h1>Zalon</h1><h2>Order Placed: ID ${order_no}<h3>Services:</h3>${all_services.innerHTML}<h3>Total Cost:</h3>${all_cost.innerHTML}
+                        printDiv.innerHTML = `<h1>${salon_name.innerHTML}</h1><h2>Order Placed: ID ${order_no}<h3>Services:</h3>${all_services.innerHTML}<h3>Total Cost:</h3>${all_cost.innerHTML}
                         <h4>Payment Mode: Cash</h4><p>Please visit the salon anytime within working hours: 11 am - 10 pm</p><br>&copy;&nbsp;Online Salon`;
                         w=window.open();
                         w.document.write(printDiv.innerHTML);
@@ -113,7 +115,7 @@ let order = document.getElementById("order");
                         Data.push(info.data().phone);
                         Data.push(all_services.innerHTML);
                         Data.push(all_cost.innerHTML);
-                    $.ajax({type:'POST', url: "http://vinayak.16mb.com/instamojo/request.php", data:{data:Data},
+                    $.ajax({type:'POST', url: "https://still-forest-89345.herokuapp.com/salon/request.php", data:{data:Data},
                     success: function (data) {
                         if(data == "success"){
                             if(order[0]==null)
