@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Online Salon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+        <!-- NAVBAR -->
+        
+        <nav class="navbar navbar-expand-md sec-color navbar-dark fixed-top">
+          <div class="container-fluid">
+            
+            <div>
+              <a class="nav-link" href="tel:0000000000"><img src="img/callusphone.png" height="28" width="28"></a>
+            </div>
+            <a href="index.html" class="navbar-brand mx-auto ml-xl-5"><h3>Online <span class="pri-color-front">Salon</span></h3></a>
+            
+            <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                  <a href="services.html" class="btn pri-color text-light">Book Now</a> 
+                </li>
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="aboutsnipped.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a href="faqs.html" class="nav-link">FAQs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="contactus.html" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item d-none" id="userDetails">
+                    <div class="dropdown">
+                        <a href="" class="btn pri-color text-light dropdown-toggle" type="button" data-toggle="dropdown" id="username">
+                            
+                        </a>
+                        <div class="dropdown-menu sec-color">
+                            <a class="dropdown-item pri-color-front" href="myprofile.html">My Account</a>
+                            <a class="dropdown-item pri-color-front" href="myorders.html">My Orders</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="btn btn-outline-light text-light pri-color-hover" id="login" data-toggle="modal" data-target="#loginModal">Login/Register</a>
+                  <a class="btn btn-outline-light text-light pri-color-hover d-none" id="logout">Logout</a> 
+                </li>
+                </ul>
+                </div>
+          </div>
+        </nav>
+
+        <!-- LoginSignup MODAL -->
+
+        <div class="modal" id="loginModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  
+                  <form id="loginSignupForm">
+                    <!-- login -->
+                    <a id="loginChange" class="btn btn-lg w-50 pri-color text-light">Login</a><a id="signupChange" class="btn btn-lg w-50 sec-color text-light">SignUp</a>
+                    <br><br>
+                    <div id="loginBox" class="form-group">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" id="email" type="text"><br>
+                    <input type="password" class="form-control form-control-lg" placeholder="Password" id="password" type="text">
+                    </div>
+
+                    <!-- signup -->
+                    <div id="signupBox" class="form-group d-none">
+                    
+                    <input type="text" class="form-control form-control-lg" id="name" placeholder="Full Name"><br>
+                    
+                    <input class="form-control form-control-lg" placeholder="Phone" type="number" id="phone"><br>
+                    <textarea class="form-control form-control-lg" placeholder="Address" id="address"></textarea><br>
+                    <input class="form-control form-control-lg" placeholder="" type="date" id="dob"><br>
+                    
+                    <select class="form-control form-control-lg" id="gender">
+                    <option value="" disabled selected>Gender</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                    <option value="o">Other</option>
+                    </select>
+
+                    </div>
+                  </form>  
+                </div>
+                <div class="modal-footer">
+                  <button class="btn sec-color text-white" data-dismiss="modal">Close</button>
+                  <button class="btn pri-color text-white" id="loginButton">Login</button>
+                  <button class="btn pri-color text-white d-none" id="signupButton">SignUp</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+
+    <div class="container mt-5">          
+    
+
+    <!-- ACCORDION -->
+    <div id="accordion" role="tablist" class="pt-5">
+        <h4>Appointments.</h4>
+      <div class="card ">
+        <div class="card-header sec-color" role="tab" id="heading">
+          <h5 class="mb-0"><a href="#collapse1" data-parent="#accordion" data-toggle="collapse">
+            How to book a service?
+          </a></h5>
+        </div>
+
+        <div id="collapse1" class="collapse">
+          <div class="card-body">
+            You can book with us by downloading our app here. Alternatively you could also book using our booking page here on our website. If you need the human touch, feel free to call us on 022 30770135 and someone will cater to you personally. All bookings are actively responded to between 9:30am-6:30pm. Any requests made after 6:30pm are noted and confirmed next morning at 9:30am.    
+        </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header sec-color" role="tab" id="heading">
+          <h5 class="mb-0"><a href="#collapse2" data-parent="#accordion" data-toggle="collapse">
+            How much do I have to pay?
+          </a></h5>
+        </div>
+
+        <div id="collapse2" class="collapse">
+          <div class="card-body">
+                We love clients who book atleast 1 day prior. However, for the unplanned, we also accept bookings 60 minutes in advance of your requirement.
+        </div>
+        </div>
+      </div>
+      <br>
+      <h4>Reschedule and Cancellation.</h4>
+      <div class="card">
+        <div class="card-header sec-color" role="tab" id="heading">
+          <h5 class="mb-0"><a href="#collapse3" data-parent="#accordion" data-toggle="collapse">
+            How do I reschedule an appointment?
+          </a></h5>
+        </div>
+
+        <div id="collapse3" class="collapse">
+          <div class="card-body">
+                You can contact us on 022 30770135 to reschedule upto 4 hours of your appointment. For rescheduling within 4 hours or your original appointment time, we will try our best but cannot assure availability of your new preferred time slot.    
+        </div>
+        </div>
+      </div>
+      <div class="card">
+            <div class="card-header sec-color" role="tab" id="heading">
+              <h5 class="mb-0"><a href="#collapse4" data-parent="#accordion" data-toggle="collapse">
+                    Can I get a refund if I cancel my appointment?
+              </a></h5>
+            </div>
+    
+            <div id="collapse4" class="collapse">
+              <div class="card-body">
+                    All requests made upto 24 hours prior to your appointment time are cancelled with full amounts being refunded to you. For cancellations made within 24 hours, we shall charge 25% of your invoice amount and refund the balance. We take significant pains to plan your appointment to perfection and our technicians strive to be on time. Last minute cancellations can disrupt their schedule and cause inconvenience to others. We are sure you get that!        
+            </div>
+            </div>
+          </div>
+    </div>
+    </div>
+<br>
+
+             <!-- Conditions and policies -->
+             <div class="container-fluid bg-book py-2">
+              <div class="row text-center">
+                <div class="col">
+                  <p><a href="doityourself/termsandconditions.html">Terms and Conditions</a></p>
+                </div>|
+                <div class="col">
+                  <p><a href="doityourself/privacypolicy.html">Privacy Policy</a></p>
+                </div>|
+                <div class="col">
+                  <p><a href="tel:0000000000">Have queries? Call us.</a></p>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <!-- social network links -->
+
+            <div class="container text-center">
+              <div class="row">
+                <div class="col">
+               <a href="https://facebook.com" target="_blank">   
+              <img src="img/social/facebookbb.png" id="fblogo" height="25px" width="25px"></a>
+              &nbsp;
+              <a href="https://instagram.com" target="_blank">
+              <img src="img/social/instagrambb.jpg" id="instalogo" height="25px" width="25px"></a>
+              &nbsp;
+              <a href="https://twitter.com" target="_blank">
+              <img src="img/social/twitterbb.png" id="twitterlogo"  height="25px" width="25px"></a>
+              &nbsp;
+              <a href="https://youtube.com"  target="_blank">
+              <img src="img/social/youtubebb.png" id="youtubelogo"  height="25px" width="30px"></a>
+              </div>
+            </div>
+            </div>
+            <br>
+
+            <div class="container text-center">
+              &copy; <span id="date"></span> Online Salon Booking.<br>
+              All rights reserved. 
+            </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+.pri-color {
+  background-color: #ff7100; }
+
+.pri-color-hover:hover {
+  background-color: #ff7100; }
+
+.pri-color-front {
+  color: #ff7100; }
+
+.sec-color {
+  background-color: #073848; }
+
+.sec-color-front {
+  color: #073848; }
+
+.pri-color-underline {
+  text-decoration: underline;
+  text-decoration-color: #ff7100; }
+
+.sec-color-border {
+  border: 3px solid #073848; }
+
+.bg-book {
+  background-color: #073848;
+  color: #ffffff; }
+
+a{
+  color:#fff;
+  text-decoration: none;
+}
+
+a:hover{
+  color:#fff;
+  text-decoration: none;
+}
+
+.sec-a{
+  color:#073848;
+}
+
+.sec-a:hover{
+  color:#073848;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.5);
+    color:#000;
+}
+@media only screen and (max-width: 1920px) {
+  .sliderimages {
+    height: 70vh; } }
+
+@media only screen and (max-width: 1200px) {
+  .sliderimages {
+    height: 60vh; } }
+
+@media only screen and (max-width: 1000px) {
+  .sliderimages {
+    height: 55vh; } }
+
+@media only screen and (max-width: 700px) {
+  .sliderimages {
+    height: 45vh; } }
+
+@media only screen and (max-width: 500px) {
+  .sliderimages {
+    height: 30vh; } }
+
+.serviceimages {
+  height: 110px;
+  width: 125px;
+  opacity: 1; }
+
+.serviceimages:hover {
+  height: 110px;
+  width: 125px;
+  opacity: 0.5; }
+
+@media only screen and (max-width: 367px) {
+  .serviceimages {
+    height: 110px;
+    width: 125px; } }
+
+@media only screen and (max-width: 304px) {
+  .serviceimages {
+    height: 95px;
+    width: 120px; } }
+
+@media only screen and (max-width: 292px) {
+  .serviceimages {
+    height: 90px;
+    width: 115px; } }
+
+.bigserviceimages{
+  height:300px;
+}
+
+  
+@media only screen and (max-width: 767px) {
+    .bigserviceimages{
+      height:200px;
+    }
+  }    
+
+.width-50 {
+  width: 50%; }
+
+
+.borderless td, .borderless th {
+    border: none;
+}  
+/*
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #bill, #bill * {
+    visibility: visible;
+  }
+  #bill {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+*/
