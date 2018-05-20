@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded",function(){
 
 // FIREBASE INITIALIZATION -- START 
 var config = {
-    apiKey: "AIzaSyAH71GT18XHREeRRIKJIHrKRWfWOWaDr6U",
-    authDomain: "online-salon-booking.firebaseapp.com",
-    databaseURL: "https://online-salon-booking.firebaseio.com",
-    projectId: "online-salon-booking",
-    storageBucket: "online-salon-booking.appspot.com",
-    messagingSenderId: "922035332849"
+    apiKey: "apiKey",
+    authDomain: "authDomain",
+    databaseURL: "databaseURL",
+    projectId: "projectId",
+    storageBucket: "storageBucket",
+    messagingSenderId: "messagingSenderId"
   };
   firebase.initializeApp(config);
 
