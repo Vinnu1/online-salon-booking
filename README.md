@@ -1,7 +1,6 @@
 # online-salon-booking
 Online booking website integrated with firebase(auth, firestore) and instamojo(php).  
-## Live
-Live [here](https://vinnu1.github.io/online-salon-booking/index.html). Don't pay for online service, it is integrated with a real account as of now.
+
 ## Firestore schema
 * #### Collection User(users) - consists of individual documents having -  
     1. address - String 
